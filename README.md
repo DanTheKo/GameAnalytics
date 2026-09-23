@@ -39,7 +39,7 @@
 ### Запуск через Docker
 
 ```bash
-docker compose -p user_analytics up -d --build
+docker compose -p game_analytics up -d --build
 ```
 
 Эта команда собирает и запускает весь стек — backend API, PostgreSQL и Vue-дашборд за Nginx — на одном открытом порту, при этом запросы `/api/*` проксируются на backend.
@@ -49,7 +49,7 @@ docker compose -p user_analytics up -d --build
 ### Остановка стека
 
 ```bash
-docker compose -p user_analytics down
+docker compose -p game_analytics down
 ```
 
 ## Unity SDK
