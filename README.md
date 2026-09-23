@@ -76,7 +76,3 @@ docker compose -p user_analytics down
 ├── game-analytics/   # Unity SDK и демо-интеграция
 └── docker-compose.yml
 ```
-
-## Лицензия
-
-[Добавить лицензию]
