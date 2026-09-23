@@ -1,0 +1,301 @@
+# ==================
+# Visual Studio / ASP.NET Core
+# ==================
+
+## Build artifacts
+**/bin/
+**/obj/
+**/out/
+**/publish/
+
+## User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Visual Studio cache files
+.vs/
+**/.vs/
+.vscode/
+
+## Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa]rm/
+[Aa]rm64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+## Visual Studio Code
+.vscode/
+*.code-workspace
+
+## Rider
+.idea/
+*.sln.iml
+
+## ASP.NET Core
+appsettings.Development.json
+appsettings.Local.json
+appsettings.Production.json
+**/wwwroot/lib/
+**/wwwroot/dist/
+
+## Database
+*.mdf
+*.ldf
+*.db
+*.sqlite
+*.sqlite3
+
+## Test results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+## NuGet
+packages/
+*.nupkg
+*.snupkg
+*.nuget.props
+*.nuget.targets
+nuget.exe
+
+## Entity Framework
+**/Migrations/*.Designer.cs
+!**/Migrations/*.Designer.cs
+**/Migrations/*.sql
+!**/Migrations/*.sql
+
+## Environment files
+.env
+.env.*
+!.env.example
+!.env.template
+
+## Azure
+*.pubxml
+*.publishproj
+*.pubxml.user
+*.pubxml.user
+azure-pipelines.yml
+Properties/PublishProfiles/
+
+## Docker
+docker-compose.override.yml
+.dockerignore
+
+## Node / npm / yarn (for frontend in ASP.NET if mixed)
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+.pnpm-debug.log
+
+# ==================
+# Vue.js / Frontend
+# ==================
+
+## Dependencies
+**/node_modules/
+
+**/yarn.lock
+**/pnpm-lock.yaml
+
+## Build outputs
+**/dist/
+**/dist-ssr/
+**/build/
+**/out/
+
+## Local development files
+*.local
+*.log
+*.tmp
+*.temp
+
+## Environment variables
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+## Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+
+## Cache directories
+**/.cache/
+**/.parcel-cache/
+**/.nuxt/
+**/.output/
+**/.vercel/
+**/.netlify/
+
+## Coverage directory used by tools like istanbul
+**/coverage/
+**/.nyc_output/
+
+## Testing
+**/test-results/
+**/e2e-report/
+**/playwright-report/
+
+## Vue specific
+**/src-auto-routes.d.ts
+**/typed-router.d.ts
+**/.quasar/
+
+## Vite
+**/.vite/
+**/vite.config.js.timestamp-*
+**/vite.config.ts.timestamp-*
+
+## Webpack
+**/.webpack/
+**/webpack-stats.json
+
+## Code editors
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# ==================
+# General
+# ==================
+
+## OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.dll
+*.exe
+*.pdb
+
+## Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+## Dependency directories
+**/jspm_packages/
+
+## Optional npm cache directory
+.npm
+
+## Optional eslint cache
+.eslintcache
+
+## Optional REPL history
+.node_repl_history
+
+## Output of 'npm pack'
+*.tgz
+
+## Yarn Integrity file
+.yarn-integrity
+
+## dotenv environment variables file
+.env
+.env.test
+
+## parcel-bundler cache
+.cache
+.parcel-cache
+
+## Next.js build output
+.next
+out
+
+## Nuxt.js build output
+.nuxt
+Nuxt.js
+dist
+
+## Gatsby files
+.cache/
+public
+
+## vuepress build output
+.vuepress/dist
+
+## Serverless directories
+.serverless/
+
+## FuseBox cache
+.fusebox/
+
+## DynamoDB Local files
+.dynamodb/
+
+## TernJS port file
+.tern-port
+
+## Stores VSCode versions used for testing
+.vscode-test
+/backend/.vs/GameAnalytics/v17
+
+
+# ── .NET / ASP.NET ───────────────────────────────────────────
+backend/bin/
+backend/obj/
+backend/*.user
+backend/.vs/
+backend/appsettings.Development.json
+
+gamification/backend/bin/
+gamification/backend/obj/
+gamification/backend/*.user
+gamification/backend/.vs/
+gamification/backend/appsettings.Development.json
+ 
+# ── Node / Vue ───────────────────────────────────────────────
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+frontend/.env.*.local
+
+gamification/frontend/node_modules/
+gamification/frontend/dist/
+gamification/frontend/.env.local
+gamification/frontend/.env.*.local
+ 
+# ── OS ───────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+ 
+# ── IDE ──────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.suo
+*.swp

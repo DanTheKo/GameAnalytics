@@ -1,0 +1,56 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB:       ${DB_NAME}
+      POSTGRES_USER:     ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - db_data_0:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ../docker/Dockerfile.backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_ENVIRONMENT:          Production
+      ASPNETCORE_URLS:                 http://+:8080
+      ConnectionStrings__Default:      Host=db;Port=5432;Database=${DB_NAME};Username=${DB_USER};Password=${DB_PASSWORD}
+      JwtSettings__SecretKey:          ${JWT_SECRET}
+      JwtSettings__Issuer:             ${JWT_ISSUER:-GameAnalytics}
+      JwtSettings__Audience:           ${JWT_AUDIENCE:-GameAnalyticsDashboard}
+      JwtSettings__ExpiryHours:        ${JWT_EXPIRY_HOURS:-8}
+      Cors__AllowedOrigins__0:         ${FRONTEND_URL:-http://localhost}
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../docker/Dockerfile.frontend
+      args:
+        # With Nginx proxying /api, frontend calls go to the same origin
+        VITE_API_URL: ""
+    restart: unless-stopped
+    depends_on:
+      backend:
+        condition: service_started
+    ports:
+      - "${DASHBOARD_PORT:-80}:80"
+
+volumes:
+  db_data_0:

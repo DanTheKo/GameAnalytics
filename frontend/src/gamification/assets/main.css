@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    @apply font-sans text-ink-900 bg-surface-50 antialiased;
+    font-size: 14px;
+  }
+
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-ink-100 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-ink-300; }
+}
+
+@layer components {
+  .nav-item {
+    @apply flex items-center gap-2.5 px-3 py-2 rounded text-ink-500 text-sm font-medium
+           transition-all duration-150 cursor-pointer select-none;
+  }
+  .nav-item:hover {
+    @apply bg-surface-100 text-ink-900;
+  }
+  .nav-item.active {
+    @apply bg-brand-50 text-brand-700;
+  }
+
+  .stat-card {
+    @apply bg-white rounded-lg shadow-card p-5 border border-surface-200;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-white border border-surface-200
+           text-ink-700 text-xs font-medium shadow-sm cursor-pointer hover:border-brand-300
+           hover:bg-brand-50 transition-all duration-150 select-none;
+  }
+  .chip.active {
+    @apply border-brand-400 bg-brand-50 text-brand-700;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded bg-brand-600 text-white text-sm
+           font-semibold hover:bg-brand-700 active:bg-brand-800 transition-colors duration-150 shadow-sm;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 rounded text-ink-500 text-sm font-medium
+           hover:bg-surface-100 hover:text-ink-900 transition-colors duration-150;
+  }
+}
+
+/* Smooth chart fade in */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.35s ease both; }
+.fade-up-1 { animation-delay: 0.05s; }
+.fade-up-2 { animation-delay: 0.10s; }
+.fade-up-3 { animation-delay: 0.15s; }
+.fade-up-4 { animation-delay: 0.20s; }
+.fade-up-5 { animation-delay: 0.25s; }
+.fade-up-6 { animation-delay: 0.30s; }

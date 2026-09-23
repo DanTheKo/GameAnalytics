@@ -1,0 +1,40 @@
+name: .NET Tests
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+    paths:
+      - 'backend/**'
+  pull_request:
+    branches: [ "main", "develop" ]
+    paths:
+      - 'backend/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Restore dependencies
+      run: dotnet restore gamification/backend/Tests/Tests.csproj
+
+    - name: Build
+      run: dotnet build gamification/backend/Tests/Tests.csproj --no-restore --configuration Release
+
+    - name: Run tests
+      run: dotnet test gamification/backend/Tests/Tests.csproj --no-build --configuration Release --logger trx --results-directory TestResults
+
+    - name: Upload test results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-results
+        path: TestResults/*.trx
