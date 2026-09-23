@@ -73,6 +73,6 @@ docker compose -p user_analytics down
 ```
 .
 ├── backend/          # ASP.NET 8 API, EF Core, доступ к PostgreSQL
-├── game-analytics/   # Unity SDK и демо-интеграция
+├── SDKs/unity        # Unity SDK 
 └── docker-compose.yml
 ```
